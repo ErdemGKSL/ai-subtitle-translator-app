@@ -1,6 +1,6 @@
 {
-    "appId": "com.your.app",
-    "productName": "electron-sveltekit-template",
+    "appId": "tr.erdemdev.ai-subtitle-translator",
+    "productName": "ai-subtitle-translator",
     "directories": {
       "output": "dist"
     },
