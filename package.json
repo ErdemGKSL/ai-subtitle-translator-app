@@ -1,0 +1,52 @@
+{
+	"name": "electron-sveltekit-template",
+	"private": true,
+	"version": "0.0.1",
+	"main": "src/backend/main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "cross-env NODE_ENV=dev npm run dev:all",
+		"dev:all": "concurrently -n=svelte,electron -c='#ff3e00',blue \"npm run dev:svelte\" \"npm run wait-and-start-electron\"",
+		"wait-and-start-electron": "wait-on http://localhost:5173 && npm run dev:electron",
+		"dev:svelte": "vite dev",
+		"dev:electron": "electron src/backend/main.js",
+		"build": "cross-env NODE_ENV=production npm run build:svelte",
+		"build:svelte": "vite build",
+		"build:electron:win": "npm run build && electron-builder -w --config build.config.json",
+		"build:electron:mac": "npm run build && electron-builder -m --config build.config.json",
+		"build:electron:linux": "npm run build && electron-builder --linux  --config build.config.json",
+		"start:chromadb": "sudo docker run -d --rm --name chromadb -p 8000:8000 -v ./chroma:/chroma/chroma -e IS_PERSISTENT=TRUE -e ANONYMIZED_TELEMETRY=TRUE chromadb/chroma:0.5.20"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.8",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/lodash": "^4.17.15",
+		"autoprefixer": "^10.4.20",
+		"concurrently": "^9.1.2",
+		"cross-env": "^7.0.3",
+		"dotenv": "^16.4.7",
+		"electron": "^33.3.1",
+		"electron-builder": "^25.1.8",
+		"lodash": "^4.17.21",
+		"openai": "^4.85.1",
+		"prettier": "^3.3.2",
+		"prettier-plugin-svelte": "^3.2.6",
+		"prettier-plugin-tailwindcss": "^0.6.5",
+		"svelte": "^5.0.0",
+		"tailwindcss": "^3.4.9",
+		"vite": "^5.4.11",
+		"wait-on": "^8.0.1"
+	},
+	"dependencies": {
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/typography": "^0.5.15",
+		"chokidar": "^4.0.3",
+		"chromadb": "^1.10.4",
+		"electron-connect": "^0.6.3",
+		"electron-packager": "^17.1.2",
+		"electron-serve": "^2.1.1",
+		"electron-window-state": "^5.0.3",
+		"lucide-svelte": "^0.475.0"
+	}
+}

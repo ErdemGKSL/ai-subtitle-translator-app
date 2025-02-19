@@ -1,0 +1,43 @@
+{
+	"printWidth": 120,
+	"tabWidth": 2,
+	"useTabs": false,
+	"semi": true,
+	"singleQuote": true,
+	"svelteStrictMode": false,
+	"svelteSortOrder": "options-scripts-markup-styles",
+	"svelteBracketNewLine": false,
+	"svelteIndentScriptAndStyle": true,
+	"htmlWhitespaceSensitivity": "ignore",
+	"plugins": [
+	  "prettier-plugin-svelte"
+	],
+	"trailingComma": "all",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"arrowParens": "always",
+	"endOfLine": "lf",
+	"quoteProps": "consistent",
+	"parser": "babel",
+	"overrides": [
+	  {
+		"files": "*.css",
+		"options": {
+		  "parser": "css"
+		}
+	  },
+	  {
+		"files": "*.cjs",
+		"options": {
+		  "parser": "babel"
+		}
+	  },
+	  {
+		"files": "*.js",
+		"options": {
+		  "parser": "babel"
+		}
+	  }
+	]
+  }
+  
