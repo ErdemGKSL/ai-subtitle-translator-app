@@ -11,15 +11,20 @@
     },
   });
 
+
+  let oldPath = "";
+
   $effect(() => {
-    form.file.path;
-    handleFileChange();
+    if (oldPath != form.file.path) {
+      oldPath = form.file.path;
+      handleFileChange();
+    }
   });
 
   let input: HTMLInputElement = $state(undefined);
 
   function handleFileChange() {
-    if (input?.files?.[0] && form.file.content) {
+    if (input?.files?.[0] && !form.file.content) {
       console.log("31")
       const file = input.files[0];
       try {

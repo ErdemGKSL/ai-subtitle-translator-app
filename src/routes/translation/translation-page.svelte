@@ -54,7 +54,7 @@
 
             let currentTranslation = line.translation
             if (!currentTranslation?.length) {
-              let previousLines = Array.from({ length: 3 }, (_, ii) => lines[i - (ii + 1)]?.translation).filter(a => a?.length).map(a => `- """${a.trim()}"""`).join("\n");
+              let previousLines = Array.from({ length: 3 }, (_, ii) => lines[i - (ii + 1)]?.translation).filter(a => a?.length).map(a => `- """${a.trim()}"""`).reverse().join("\n");
               console.log(previousLines);
               // databaseName, sourceLang, targetLang, text
               let [data] = await sendWait("translate", 
